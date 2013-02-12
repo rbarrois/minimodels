@@ -5,6 +5,8 @@ This library aims to provide a generic abstraction over various data storage bac
 It provides a simple, declarative API for data structures,
 which can then be mapped to custom backends.
 
+.. note:: This is only a draft documentation, no actual code yet!
+
 Example
 -------
 
