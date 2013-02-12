@@ -1,0 +1,39 @@
+minimodel
+==========
+
+This library aims to provide a generic abstraction over various data storage backends.
+It provides a simple, declarative API for data structures,
+which can then be mapped to custom backends.
+
+Example
+-------
+
+.. code-block:: python
+
+    class User(minimodel.Model):
+        first_name = minimodel.fields.CharField()
+        last_name = minimodel.fields.CharField()
+
+    >>> user = User(first_name="John", last_name="Lennon")
+    >>> user.serialize('json')
+    '{"first_name": "John", "last_name": "Lennon"}'
+
+
+Backends
+--------
+
+A specific backend may be provided for each model, in its ``Meta`` class:
+
+.. code-block:: python
+
+    class User(minimodel.Model):
+        # Field definitions
+
+        class Meta:
+            backend = minimodel.backends.Redis(settings.REDIS_URL, prefix='user')
+
+    >>> user = User(username='john', first_name="John", last_name="Lennon")
+    >>> user.save()
+
+    >>> user = User.objects.get(username='john')
+    <User: John Lennon>
