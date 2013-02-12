@@ -1,4 +1,4 @@
-minimodel
+minimodels
 ==========
 
 This library aims to provide a generic abstraction over various data storage backends.
@@ -12,9 +12,9 @@ Example
 
 .. code-block:: python
 
-    class User(minimodel.Model):
-        first_name = minimodel.fields.CharField()
-        last_name = minimodel.fields.CharField()
+    class User(minimodels.Model):
+        first_name = minimodels.fields.CharField()
+        last_name = minimodels.fields.CharField()
 
     >>> user = User(first_name="John", last_name="Lennon")
     >>> user.serialize('json')
@@ -28,11 +28,11 @@ A specific backend may be provided for each model, in its ``Meta`` class:
 
 .. code-block:: python
 
-    class User(minimodel.Model):
+    class User(minimodels.Model):
         # Field definitions
 
         class Meta:
-            backend = minimodel.backends.Redis(settings.REDIS_URL, prefix='user')
+            backend = minimodels.backends.Redis(settings.REDIS_URL, prefix='user')
 
     >>> user = User(username='john', first_name="John", last_name="Lennon")
     >>> user.save()

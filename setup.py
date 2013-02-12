@@ -21,20 +21,20 @@ def get_version(package_name):
     return '0.1.0'
 
 
-PACKAGE = 'minimodel'
+PACKAGE = 'minimodels'
 
 
 setup(
-    name="minimodel",
+    name="minimodels",
     version=get_version(PACKAGE),
     author="Raphaël Barrois",
-    author_email="raphael.barrois+minimodel@polytechnique.org",
+    author_email="raphael.barrois+minimodels@polytechnique.org",
     description="A backend-independent database abstraction tool.",
     license="BSD",
     keywords=['model', 'backend', 'abstraction'],
-    url="http://github.com/rbarrois/minimodel",
-    download_url="http://pypi.python.org/pypi/minimodel/",
-    packages=['minimodel'],
+    url="http://github.com/rbarrois/minimodels",
+    download_url="http://pypi.python.org/pypi/minimodels/",
+    packages=['minimodels'],
     setup_requires=[
         'distribute',
     ],
